@@ -44,6 +44,8 @@ This ```DID WORK``` after adding the privleged flag:
 ```
 sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
 ```
+This command is outlined in the quickstart guide: <br/>
+https://www.suse.com/products/suse-rancher/get-started/
 
 Find the container ID - ace724ca4640
 ```
