@@ -101,16 +101,48 @@ apt-get install docker-ce docker-ce-cli containerd.io
 Do the same on the other EC2 instances. <br/>
 Rancher UI will generate a slightly different install script for control plane and workers:
 
-## Master
+#### Master
 ```
 docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes 
 -v /var/run:/var/run  rancher/rancher-agent:v2.6.0 --server https://RANCHER-SERVER.eu-west-1.compute.amazonaws.com 
 --token VALUE --ca-checksum MD5HASH --etcd --controlplane --worker
 ```
 
-## Worker
+#### Worker
 ```
 docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes 
 -v /var/run:/var/run  rancher/rancher-agent:v2.6.0 --server https://RANCHER-SERVER.eu-west-1.compute.amazonaws.com 
 --token VALUE --ca-checksum MD5HASH --worker
+```
+
+## Download the Kubeconfig file from Rancher UI
+Log into Rancher. From the Global view, open the cluster that you want to access the Kubeconfig File from <br/>
+https://rancher.com/docs/rancher/v2.5/en/cluster-admin/cluster-access/kubectl/#accessing-clusters-with-kubectl-on-your-workstation <br/>
+<br/>
+Create a file and paste the contents of the downloaded Kubeconfig.yaml manifest:
+```
+vi kubeconfig.yaml
+```
+
+```
+KUBECONFIG=kubeconfig.yaml
+```
+
+```
+export KUBECONFIG=kubeconfig.yaml kubectl get nodes
+```
+
+You should now be able to see your 3 nodes (if the docker install command was used on each EC2 instance):
+```
+kubectl get nodes
+```
+
+Confirm all environmental variables are configured correctly:
+```
+env
+```
+
+Connect your cluster to Calico Cloud:
+```
+curl https://installer.calicocloud.io/YOUR-ACCOUNT_install.sh | bash
 ```
