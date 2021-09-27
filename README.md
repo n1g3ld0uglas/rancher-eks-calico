@@ -224,6 +224,9 @@ Create the Restricted Policy:
 kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/policies/restricted.yaml
 ```
 
+<img width="606" alt="Screenshot 2021-09-27 at 15 24 18" src="https://user-images.githubusercontent.com/82048393/134927906-309354fe-7d22-429a-be20-8676d5aea576.png">
+
+
 ## Allow Kube-DNS Traffic: 
 Create the 'Security' Tier:
 ``` 
@@ -237,6 +240,9 @@ Allow traffic for Kube-DNS / CoreDNS:
 ```
 kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/policies/allow-kubedns.yaml
 ```
+
+<img width="606" alt="Screenshot 2021-09-27 at 15 25 54" src="https://user-images.githubusercontent.com/82048393/134928143-6c1f4bab-7e12-4b2a-b8eb-c185c04befec.png">
+
   
 ## Increase the Sync Rate: 
 ``` 
