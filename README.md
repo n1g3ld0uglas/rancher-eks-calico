@@ -147,3 +147,7 @@ Connect your cluster to Calico Cloud:
 ```
 curl https://installer.calicocloud.io/YOUR-ACCOUNT_install.sh | bash
 ```
+
+Once connected to Calico Cloud, you can see the new Calico deployment in your managed cluster view within the Rancher UI
+![Screenshot 2021-09-27 at 13 16 11](https://user-images.githubusercontent.com/82048393/134906279-072f9da1-e21f-4c49-874f-21b9b90c7b0d.png)
+
