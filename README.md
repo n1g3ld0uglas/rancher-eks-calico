@@ -47,7 +47,8 @@ Find the bootstrap password required for login:
 docker logs  ace724ca4640  2>&1 | grep "Bootstrap Password:"
 ```
 
-<img width="779" alt="Screenshot 2021-09-16 at 16 15 45" src="https://user-images.githubusercontent.com/82048393/133640590-58bf23e6-b459-4bbd-93de-b79cb2ff3333.png">
+<img width="776" alt="Screenshot 2021-09-16 at 16 15 45" src="https://user-images.githubusercontent.com/82048393/134907623-0d78b8c0-a5d5-4c4d-b7ba-faf234a0fdf2.png">
+
 
 We can immediately take the action to create a new cluster from multiple distributions
 
