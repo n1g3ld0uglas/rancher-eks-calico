@@ -152,3 +152,44 @@ curl https://installer.calicocloud.io/YOUR-ACCOUNT_install.sh | bash
 Once connected to Calico Cloud, you can see the new Calico deployment in your managed cluster view within the Rancher UI
 ![Screenshot 2021-09-27 at 13 16 11](https://user-images.githubusercontent.com/82048393/134906279-072f9da1-e21f-4c49-874f-21b9b90c7b0d.png)
 
+## Building Calico Policies
+
+The initial policy that comes packed with RKE clusters is an allow-all for the cattle-fleet-system namespace. <br/>
+As you can see in the Calico Cloud web UI, it is placed in the 'default' tier - because Tiers is a unique CRD for Calico Cloud & Enterprise.
+
+```
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-allow-all
+  namespace: cattle-fleet-system
+spec:
+  podSelector: {}
+  egress:
+    - {}
+  ingress:
+    - {}
+  policyTypes:
+    - Ingress
+    - Egress
+```
+
+![Screenshot 2021-09-27 at 13 54 12](https://user-images.githubusercontent.com/82048393/134911983-75be370a-c2d5-4224-b5f3-ea0abdb40926.png)
+
+We could alertnatively, write the same policy with Calico's implementation:
+
+```
+apiVersion: projectcalico.org/v3
+kind: StagedNetworkPolicy
+metadata:
+  name: default.default-allow-all
+  namespace: cattle-fleet-system
+spec:
+  tier: default
+  order: 900
+  selector: all()
+  serviceAccountSelector: ''
+  types:
+    - Ingress
+    - Egress
+```
