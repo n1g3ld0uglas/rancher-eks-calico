@@ -51,7 +51,8 @@ docker logs  ace724ca4640  2>&1 | grep "Bootstrap Password:"
 
 We can immediately take the action to create a new cluster from multiple distributions
 
-<img width="1309" alt="Screenshot 2021-09-16 at 16 29 13" src="https://user-images.githubusercontent.com/82048393/133641179-148b9edb-9fad-4038-84c8-a9aa87e623d9.png">
+![Screenshot 2021-09-27 at 13 12 05](https://user-images.githubusercontent.com/82048393/134905911-84376512-2885-4072-a2fb-630942294325.png)
+
 
 For the purpose of this session, we will configure an Custom cluster through Rancher
 
