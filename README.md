@@ -95,10 +95,14 @@ Rancher UI will generate a slightly different install script for control plane a
 
 ## Master
 ```
-sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.6.0 --server https://ec2-34-244-173-244.eu-west-1.compute.amazonaws.com --token tv86nzm8q2s46gq9xrfvm9rlvvx855vq97ms4ntzdp8xj5tpc2b892 --ca-checksum 0ce14a40f88389161b978f0759ae6d81ffd6e9b3637cf3f840d569a15cd77dd3 --etcd --controlplane --worker
+sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes 
+-v /var/run:/var/run  rancher/rancher-agent:v2.6.0 --server https://RANCHER-SERVER.eu-west-1.compute.amazonaws.com 
+--token VALUE --ca-checksum MD5HASH --etcd --controlplane --worker
 ```
 
 ## Worker
 ```
-sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.6.0 --server https://ec2-34-244-173-244.eu-west-1.compute.amazonaws.com --token tv86nzm8q2s46gq9xrfvm9rlvvx855vq97ms4ntzdp8xj5tpc2b892 --ca-checksum 0ce14a40f88389161b978f0759ae6d81ffd6e9b3637cf3f840d569a15cd77dd3 --worker
+sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes 
+-v /var/run:/var/run  rancher/rancher-agent:v2.6.0 --server https://RANCHER-SERVER.eu-west-1.compute.amazonaws.com 
+--token VALUE --ca-checksum MD5HASH --worker
 ```
