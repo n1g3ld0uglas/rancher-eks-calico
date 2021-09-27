@@ -1,16 +1,6 @@
 # Create Calico Cloud-compatible cluster in Rancher
 Create a EKS cluster through Rancher - which is compatible for Calico Cloud
 
-## Create a compatible EC2 instance:
-Make sure the SSH key was given correct permissions
-```
-sshkeys % chmod 400 nigel-rancher-key.pem
-```
-SSH into the newly-created EC2 instance
-```
-ssh -i "nigel-rancher-key.pem" ec2-user@192.168.185.196
-```
-
 ## Install Rancher
 Check Docker Status
 ```
