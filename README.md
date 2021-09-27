@@ -63,8 +63,14 @@ Install Docker on each AWS EC2 instance as per the below workflow: <br/>
 https://docs.docker.com/engine/install/ubuntu/
 
 ```
-sudo apt-get update
-sudo apt-get install \
+sudo su
+```
+
+```
+apt-get update
+```
+```
+apt-get install \
    apt-transport-https \
    ca-certificates \
    curl \
@@ -86,8 +92,10 @@ echo \
 ## Install Docker Engine
 
 ```
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+apt-get update
+```
+```
+apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 Do the same on the other EC2 instances. <br/>
@@ -95,14 +103,14 @@ Rancher UI will generate a slightly different install script for control plane a
 
 ## Master
 ```
-sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes 
+docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes 
 -v /var/run:/var/run  rancher/rancher-agent:v2.6.0 --server https://RANCHER-SERVER.eu-west-1.compute.amazonaws.com 
 --token VALUE --ca-checksum MD5HASH --etcd --controlplane --worker
 ```
 
 ## Worker
 ```
-sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes 
+docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes 
 -v /var/run:/var/run  rancher/rancher-agent:v2.6.0 --server https://RANCHER-SERVER.eu-west-1.compute.amazonaws.com 
 --token VALUE --ca-checksum MD5HASH --worker
 ```
