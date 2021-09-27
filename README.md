@@ -118,6 +118,10 @@ docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernete
 ```
 
 ## Download the Kubeconfig file from Rancher UI
+
+Might be worth installing the 'kubectl' utility, but this alone won't get the node/pod outputs: <br/>
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/ <br/>
+<br/>
 Log into Rancher. From the Global view, open the cluster that you want to access the Kubeconfig File from <br/>
 https://rancher.com/docs/rancher/v2.5/en/cluster-admin/cluster-access/kubectl/#accessing-clusters-with-kubectl-on-your-workstation <br/>
 <br/>
@@ -500,12 +504,11 @@ tshark -r frontend-75875cb97c-2fkt2_enib222096b242.pcap -2 -R dns | grep microse
 ## Wireguard In-Transit Encryption:
 
 To begin, you will need a Kubernetes cluster with WireGuard installed on the host operating system.</br>
-https://www.tigera.io/blog/introducing-wireguard-encryption-with-calico/
+https://www.wireguard.com/install/ <br/>
+<br/>
+Installing wireguard on an Ubuntu EC2 instance
 ```
-sudo yum install kernel-devel-`uname -r` -y
-sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
-sudo curl -o /etc/yum.repos.d/jdoss-wireguard-epel-7.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
-sudo yum install wireguard-dkms wireguard-tools -y
+sudo apt install wireguard
 ```
 Enable WireGuard encryption across all the nodes using the following command:
 ```
