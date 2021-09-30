@@ -1,5 +1,5 @@
 # Create Calico Cloud-compatible cluster in Rancher
-Create a EKS cluster through Rancher - which is compatible for Calico Cloud
+Create a custom cluster through Rancher - which is compatible for Calico Cloud
 
 ## Install Rancher Server
 Check Docker Status
