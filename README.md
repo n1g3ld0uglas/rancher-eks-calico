@@ -117,14 +117,48 @@ docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernete
 --token VALUE --ca-checksum MD5HASH --worker
 ```
 
-## Download the Kubeconfig file from Rancher UI
-
 Might be worth installing the 'kubectl' utility, but this alone won't get the node/pod outputs: <br/>
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/ <br/>
 <br/>
-Log into Rancher. From the Global view, open the cluster that you want to access the Kubeconfig File from <br/>
-https://rancher.com/docs/rancher/v2.5/en/cluster-admin/cluster-access/kubectl/#accessing-clusters-with-kubectl-on-your-workstation <br/>
+
+## Install kubectl binary with curl on Linux
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux <br/>
 <br/>
+Download the latest release with the command:
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+
+Validate the binary (optional)
+```
+curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+```
+
+Validate the kubectl binary against the checksum file:
+```
+echo "$(<kubectl.sha256) kubectl" | sha256sum --check
+```
+
+Install kubectl
+```
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
+If you do not have root access on the target system, you can still install kubectl to the ~/.local/bin directory:
+```
+chmod +x kubectl
+mkdir -p ~/.local/bin/kubectl
+mv ./kubectl ~/.local/bin/kubectl
+# and then add ~/.local/bin/kubectl to $PATH
+```
+
+Test to ensure the version you installed is up-to-date:
+```
+kubectl version --client
+```
+
+## Download the Kubeconfig file from Rancher UI
+
 Create a file and paste the contents of the downloaded Kubeconfig.yaml manifest:
 ```
 vi kubeconfig.yaml
