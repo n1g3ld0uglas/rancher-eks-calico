@@ -412,17 +412,17 @@ kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-pa
 Generate a ``` CIS Benchmark```  report: <br/>
 https://docs.tigera.io/v3.11/compliance/overview
 ```   
-kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/reporting/daily-cis-report.yaml
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-eks-calico/main/compliance/cis-halfhour.yaml
 ```
 
 Generate an ```Inventory```  report
 ```  
-kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/reporting/half-hour-inventory-report.yaml
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-eks-calico/main/compliance/inventory-halfhour.yaml
 ```
 
 Generate a ```Network Access```  report:
 ``` 
-kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/reporting/half-hour-network-access.yaml  
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/rancher-eks-calico/main/compliance/network-halfhour.yaml 
 ```
 
 ![compliance-reporting](https://user-images.githubusercontent.com/82048393/144321272-d6303cde-18b3-434a-b2ff-d45c6d9ccece.png)
@@ -440,7 +440,8 @@ kubectl get globalreporttype cis-benchmark
 ```
 
 
-In the following example, we use a GlobalReport with CIS benchmark fields to schedule and filter results.
+In the following example, we use a GlobalReport with CIS benchmark fields to schedule on a ```DAILY``` basis. <br/>
+This is ideal when running reports over various timeframes for regulatory standard reporting:
 ```
 apiVersion: projectcalico.org/v3
 kind: GlobalReport
