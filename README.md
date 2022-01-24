@@ -249,6 +249,53 @@ Allow traffic for Kube-DNS / CoreDNS:
 kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/policies/allow-kubedns.yaml
 ```
 
+
+<br/>
+<br/>
+<br/>
+
+## Configure Calico Cloud:
+Get your Calico Cloud installation script from the Web UI - https://qq9psbdn-management.calicocloud.io/clusters/grid
+```
+curl https://installer.calicocloud.io/*****.*****-management_install.sh | bash
+```
+Check for cluster security group of cluster:
+```
+aws eks describe-cluster --name nigel-eks-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId
+```
+If your cluster does not have applications, you can use the following storefront application:
+```
+kubectl apply -f https://installer.calicocloud.io/storefront-demo.yaml
+```
+
+<img width="731" alt="Screenshot 2021-12-02 at 09 31 00" src="https://user-images.githubusercontent.com/82048393/144395142-da473fc4-db81-4ebe-97f2-3fea17f4b2c0.png">
+
+
+Create the Product Tier:
+```
+kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/policies/product.yaml
+```  
+## Zone-Based Architecture  
+Create the DMZ Policy:
+```
+kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/policies/dmz.yaml
+```
+Create the Trusted Policy:
+```
+kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/policies/trusted.yaml
+``` 
+Create the Restricted Policy:
+```
+kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/policies/restricted.yaml
+```
+
+#### Confirm all policies are running:
+```
+kubectl get networkpolicies.p -n storefront -l projectcalico.org/tier=product
+```
+
+
+
 ## Compliance Reporting
 
 Generate a ``` CIS Benchmark```  report: <br/>
