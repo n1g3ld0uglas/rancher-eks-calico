@@ -59,6 +59,13 @@ For the purpose of this session, we will configure an Custom cluster through Ran
 
 ![Screenshot 2021-09-27 at 12 43 43](https://user-images.githubusercontent.com/82048393/134901725-3c6560b1-b9d6-46ca-8950-241f61fa7cfd.png)
 
+
+##### NB: The below sysctl setting must be applied
+For the container runtime, RKE should work with any modern Docker version:
+```
+net.bridge.bridge-nf-call-iptables=1
+```
+
 ## Install Docker on EC2 instances
 
 Install Docker on each AWS EC2 instance as per the below workflow: <br/>
