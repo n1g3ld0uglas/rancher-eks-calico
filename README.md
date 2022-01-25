@@ -1,5 +1,6 @@
 # Create Calico Cloud-compatible cluster in Rancher
-Create a custom cluster through Rancher - which is compatible for Calico Cloud
+Create a custom cluster through ```Rancher Server``` - which is compatible for Calico Cloud: <br/>
+https://rancher.com/docs/rancher/v1.6/en/installing-rancher/installing-server/
 
 ## Install Rancher Server
 Check Docker Status
