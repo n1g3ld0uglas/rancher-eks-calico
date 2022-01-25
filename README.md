@@ -5,8 +5,8 @@ https://rancher.com/docs/rancher/v1.6/en/installing-rancher/installing-server/
 ## Install Rancher Server
 
 The install process of Docker is outlined later in the repo: <br/>
-https://docs.docker.com/engine/install/ubuntu/ <br/>
-
+https://docs.docker.com/engine/install/ubuntu/ 
+<br/>
 <br/>
 Check Docker Status
 ```
