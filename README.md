@@ -569,7 +569,19 @@ Confirm the labels are now assigned:
 kubectl get nodes --show-labels | grep etcd
 ```
 
+You can confirm the labels are applied to the correct nodes within the Rancher UI:
+
+<img width="1033" alt="Screenshot 2022-01-27 at 13 09 48" src="https://user-images.githubusercontent.com/82048393/151365485-eccc1497-1f5e-490a-91b5-ede9c39c414c.png">
+
+
 ## Dynamic Packet Capture:
+
+The below workflow assumes you have are making changes via the Rancher CLI <br/>
+However, you can generate packet captures directly on the namespace-level via the Calico Cloud Web UI
+
+
+<br/>
+<br/>
 
 Check that there are no packet captures in this directory  
 ```
