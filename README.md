@@ -577,11 +577,26 @@ You can confirm the labels are applied to the correct nodes within the Rancher U
 ## Dynamic Packet Capture:
 
 The below workflow assumes you have are making changes via the Rancher CLI <br/>
-However, you can generate packet captures directly on the namespace-level via the Calico Cloud Web UI
+However, you can generate packet captures directly on the namespace-level via the Calico Cloud Web UI <br/>
+<br/>
+Right click on the namespace within the service graph. <br/>
+Click on Initiate Packet Capture:
 
+<img width="1345" alt="Screenshot 2022-01-27 at 13 15 01" src="https://user-images.githubusercontent.com/82048393/151366381-ba0f14c8-153d-42f9-846c-5938d06887b0.png">
+
+Specify the ports & protocols you'd like to capture in your .PCAP export. <br/>
+You can also schedule a specific start and end date and time for the .PCAP to be run from:
+
+<img width="1332" alt="Screenshot 2022-01-27 at 13 14 21" src="https://user-images.githubusercontent.com/82048393/151366417-5d702d89-f3e6-42d0-b29b-d92702cb8020.png">
+
+Once executed, you can download the packet capture directly from the web UI. <br/>
+This can be opened in your desktop Wireshark client:
+
+<img width="1624" alt="Screenshot 2022-01-27 at 13 14 44" src="https://user-images.githubusercontent.com/82048393/151366812-0282d06f-6b87-41ed-ae72-8ee365d967d7.png">
 
 <br/>
 <br/>
+
 
 Check that there are no packet captures in this directory  
 ```
