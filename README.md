@@ -270,7 +270,8 @@ kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-pa
 ## Configure Calico Cloud:
 Get your Calico Cloud installation script from the Web UI - https://qq9psbdn-management.calicocloud.io/clusters/grid
 ```
-curl https://installer.calicocloud.io/*****.*****-management_install.sh | bash
+CLUSTER_PREFIX='rancher-rke-nigel'
+curl https://installer.calicocloud.io/******_*****-management_install.sh | sed -e "s/CLUSTER_NAME=.*$/CLUSTER_NAME=${CLUSTER_PREFIX}/1" | bash
 ```
 Check for cluster security group of cluster:
 ```
