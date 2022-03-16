@@ -208,7 +208,8 @@ env
 
 Connect your cluster to Calico Cloud:
 ```
-curl https://installer.calicocloud.io/YOUR-ACCOUNT_install.sh | bash
+CLUSTER_PREFIX='rancher-rke-calico'
+curl https://installer.calicocloud.io/******_*****-management_install.sh | sed -e "s/CLUSTER_NAME=.*$/CLUSTER_NAME=${CLUSTER_PREFIX}/1" | bash
 ```
 
 Once connected to Calico Cloud, you can see the new Calico deployment in your managed cluster view within the Rancher UI
