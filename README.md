@@ -9,6 +9,9 @@ https://rancherdesktop.io/
 <br/><br/>
 Once installed on your desktop, you can follow the instructions to install open-source Calico on to this one-node cluster: <br/>
 https://projectcalico.docs.tigera.io/getting-started/kubernetes/rancher
+<br/><br/>
+As long as you are running either ```canal``` or ```calico``` CNI plugins in this Rancher Desktop or Rancher's RKE clusers, you should be able to connect to Calico Cloud via a single bash install script:
+https://docs.calicocloud.io/get-started/connect/rke
 
 ## Install Rancher Server
 
