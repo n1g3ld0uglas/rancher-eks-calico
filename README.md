@@ -1,6 +1,14 @@
 # Create Calico Cloud-compatible cluster in Rancher
 Create a custom cluster through ```Rancher Server``` - which is compatible for Calico Cloud: <br/>
-https://rancher.com/docs/rancher/v1.6/en/installing-rancher/installing-server/
+https://rancher.com/docs/rancher/v1.6/en/installing-rancher/installing-server/ 
+
+## Alternatively, test Calico Cloud with Rancher Desktop
+An open-source desktop application for Mac, Windows and Linux. Rancher Desktop runs Kubernetes and container management on your desktop. You can choose the version of Kubernetes you want to run. You can build, push, pull, and run container images using either containerd or Moby (dockerd). The container images you build can be run by Kubernetes immediately without the need for a registry.
+<br/>
+https://rancherdesktop.io/
+<br/><br/>
+Once installed on your desktop, you can follow the instructions to install open-source Calico on to this one-node cluster: <br/>
+https://projectcalico.docs.tigera.io/getting-started/kubernetes/rancher
 
 ## Install Rancher Server
 
