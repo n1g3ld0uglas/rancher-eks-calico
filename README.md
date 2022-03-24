@@ -320,6 +320,16 @@ kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-pa
 kubectl get networkpolicies.p -n storefront -l projectcalico.org/tier=product
 ```
 
+## Allow Kube-DNS Traffic: 
+We need to create the following policy within the ```tigera-security``` tier <br/>
+Determine a DNS provider of your cluster (mine is 'coredns' by default)
+```
+kubectl get deployments -l k8s-app=kube-dns -n kube-system
+```    
+Allow traffic for Kube-DNS / CoreDNS:
+```
+kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/aws-howdy-parter-calico-cloud/main/policies/allow-kubedns.yaml
+```
 
 
 ## Compliance Reporting
