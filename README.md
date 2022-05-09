@@ -96,12 +96,11 @@ sudo su
 apt-get update
 ```
 ```
-apt-get install \
-   apt-transport-https \
-   ca-certificates \
-   curl \
-   gnupg \
-   lsb-release
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
 ```
 
 Add Docker’s official GPG key:
