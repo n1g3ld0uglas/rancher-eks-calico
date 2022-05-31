@@ -42,11 +42,6 @@ sudo /usr/sbin/usermod -aG docker $USER
 sudo chown $USER:docker /var/run/docker.sock
 ```
 
-This ```DID NOT WORK``` after original test:
-```
-sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
-```
-
 This ```DID WORK``` after adding the privleged flag:
 ```
 sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
